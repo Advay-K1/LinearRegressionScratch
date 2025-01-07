@@ -1,10 +1,47 @@
+# cmake_minimum_required(VERSION 3.14)
+# project(LinearRegLibrary)
+
+# find_package(xtensor REQUIRED)
+
+# add_executable(regression_lib src/LinearRegression.cpp includes/LinearRegression.hpp)
+
+# target_include_directories(regression_lib PRIVATE includes)
+
+# target_link_libraries(regression_lib PRIVATE xtensor)
+
+
+# cmake_minimum_required(VERSION 3.14)
+# project(LinearRegLibrary)
+
+# # Find xtensor package
+# find_package(xtensor REQUIRED)
+
+
+# include_directories(/usr/local/include/)
+
+# add_executable(regression_lib src/LinearRegression.cpp includes/LinearRegression.hpp)
+
+# target_include_directories(regression_lib PRIVATE includes)
+
+# target_link_libraries(regression_lib PRIVATE xtensor)
+
+
+
 cmake_minimum_required(VERSION 3.14)
-project(LinearRegLibrary)
+project(LinearRegression)
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(xtensor REQUIRED)
 
-add_executable(regression_lib src/LinearRegression.cpp includes/LinearRegression.hpp)
+include_directories("/usr/local/include")
 
-target_include_directories(regression_lib PRIVATE includes)
+find_package(BLAS REQUIRED)
+find_package(LAPACK REQUIRED)
 
-target_link_libraries(regression_lib PRIVATE xtensor)
+include_directories("${CMAKE_SOURCE_DIR}/include")
+
+add_executable(LinearRegression src/main.cpp)
+
+target_link_libraries(LinearRegression PRIVATE xtensor BLAS::BLAS LAPACK::LAPACK)

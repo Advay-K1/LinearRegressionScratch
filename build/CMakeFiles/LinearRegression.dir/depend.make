@@ -1,2 +1,2 @@
-# Empty dependencies file for my_xtensor_app.
+# Empty dependencies file for LinearRegression.
 # This may be replaced when dependencies are built.

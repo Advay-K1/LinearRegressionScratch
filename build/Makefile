@@ -117,41 +117,41 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named regression_lib
+# Target rules for targets named LinearRegression
 
 # Build rule for target.
-regression_lib: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 regression_lib
-.PHONY : regression_lib
+LinearRegression: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 LinearRegression
+.PHONY : LinearRegression
 
 # fast build rule for target.
-regression_lib/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/regression_lib.dir/build.make CMakeFiles/regression_lib.dir/build
-.PHONY : regression_lib/fast
+LinearRegression/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LinearRegression.dir/build.make CMakeFiles/LinearRegression.dir/build
+.PHONY : LinearRegression/fast
 
-src/LinearRegression.o: src/LinearRegression.cpp.o
-.PHONY : src/LinearRegression.o
+src/main.o: src/main.cpp.o
+.PHONY : src/main.o
 
 # target to build an object file
-src/LinearRegression.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/regression_lib.dir/build.make CMakeFiles/regression_lib.dir/src/LinearRegression.cpp.o
-.PHONY : src/LinearRegression.cpp.o
+src/main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LinearRegression.dir/build.make CMakeFiles/LinearRegression.dir/src/main.cpp.o
+.PHONY : src/main.cpp.o
 
-src/LinearRegression.i: src/LinearRegression.cpp.i
-.PHONY : src/LinearRegression.i
+src/main.i: src/main.cpp.i
+.PHONY : src/main.i
 
 # target to preprocess a source file
-src/LinearRegression.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/regression_lib.dir/build.make CMakeFiles/regression_lib.dir/src/LinearRegression.cpp.i
-.PHONY : src/LinearRegression.cpp.i
+src/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LinearRegression.dir/build.make CMakeFiles/LinearRegression.dir/src/main.cpp.i
+.PHONY : src/main.cpp.i
 
-src/LinearRegression.s: src/LinearRegression.cpp.s
-.PHONY : src/LinearRegression.s
+src/main.s: src/main.cpp.s
+.PHONY : src/main.s
 
 # target to generate assembly for a file
-src/LinearRegression.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/regression_lib.dir/build.make CMakeFiles/regression_lib.dir/src/LinearRegression.cpp.s
-.PHONY : src/LinearRegression.cpp.s
+src/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LinearRegression.dir/build.make CMakeFiles/LinearRegression.dir/src/main.cpp.s
+.PHONY : src/main.cpp.s
 
 # Help Target
 help:
@@ -161,10 +161,10 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... regression_lib"
-	@echo "... src/LinearRegression.o"
-	@echo "... src/LinearRegression.i"
-	@echo "... src/LinearRegression.s"
+	@echo "... LinearRegression"
+	@echo "... src/main.o"
+	@echo "... src/main.i"
+	@echo "... src/main.s"
 .PHONY : help
 
 

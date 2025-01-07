@@ -1,4 +1,4 @@
-CMakeFiles/regression_lib.dir/src/LinearRegression.cpp.o: \
+CMakeFiles/LinearRegression.dir/src/LinearRegression.cpp.o: \
   /Users/advaykadam/LinearRegressionScratch/src/LinearRegression.cpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/iostream \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/__assert \
