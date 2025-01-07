@@ -55,10 +55,50 @@ void LinearRegression::compute_error_vector() {
 }
 
 
-void LinearRegression::gradient_descent() {
+ xt::xtensor<double, 1> LinearRegression::batch_gradient_descent(const double& learning_rate, const int& max_iterations) {
+
+    xt::xtensor<double, 1> rss_history = xt::zeros<double>({max_iterations});
+
+    for (int i =0; i < max_iterations; ++i) {
+
+        calculate_response_vector();
+        compute_error_vector();
+
+        auto gradient = -2 * xt::linalg::dot(xt::transpose(design_matrix), error_vector);
+
+        update_bias_vector(gradient, learning_rate);
+        
+        double curr_loss = RSS();
+
+        std::cout << "Epoch: " << i + 1 << "| Loss (RSS): " << curr_loss << std::endl;
+
+        rss_history(i) = curr_loss;
+
+        if (i > 0 && std::abs(rss_history(i) - rss_history(i - 1)) < 1e-6) {
+            rss_history = xt::view(rss_history, xt::range(0, i + 1));
+            break;
+        }
+
+    }
+
+
+    return rss_history;
 
 }
 
-void LinearRegression::update_bias_vector() {
+void LinearRegression::update_bias_vector(const xt::xtensor<double, 1>& gradient, const double& learning_rate) {
+    bias_vector -= learning_rate * gradient;
+}
+
+
+void LinearRegression::fit_model(const double& learning_rate, const int& max_iterations) {
+    auto rss_history = batch_gradient_descent(learning_rate, max_iterations);
+
+    double train_loss = RSS();
+    std::cout << "Final Training Loss (RSS): " << train_loss << std::endl;
+
+    xt::xtensor<double, 1> test_predictions = xt::linalg::dot(x_valid_matrix, bias_vector);
+    double test_loss = xt::sum(xt::pow(y_valid_vector - test_predictions, 2))();
+    std::cout << "Validation Loss (RSS): " << test_loss << std::endl;
 
 }

@@ -38,9 +38,12 @@ class LinearRegression {
 
         void compute_error_vector();
 
-        void gradient_descent();
+        xt::xtensor<double, 1> batch_gradient_descent(const double& learning_rate, const int& max_iterations);
 
-        void update_bias_vector();
+        void update_bias_vector(const xt::xtensor<double, 1>& gradient, const double& learning_rate);
+
+
+        void fit_model(const double& learning_rate, const int& max_iterations);
 
 
     private:
