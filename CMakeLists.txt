@@ -42,6 +42,6 @@ find_package(LAPACK REQUIRED)
 
 include_directories("${CMAKE_SOURCE_DIR}/include")
 
-add_executable(LinearRegression src/main.cpp)
+add_executable(LinearRegression src/main.cpp src/LinearRegression.cpp)
 
 target_link_libraries(LinearRegression PRIVATE xtensor BLAS::BLAS LAPACK::LAPACK)

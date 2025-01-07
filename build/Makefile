@@ -129,6 +129,30 @@ LinearRegression/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/LinearRegression.dir/build.make CMakeFiles/LinearRegression.dir/build
 .PHONY : LinearRegression/fast
 
+src/LinearRegression.o: src/LinearRegression.cpp.o
+.PHONY : src/LinearRegression.o
+
+# target to build an object file
+src/LinearRegression.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LinearRegression.dir/build.make CMakeFiles/LinearRegression.dir/src/LinearRegression.cpp.o
+.PHONY : src/LinearRegression.cpp.o
+
+src/LinearRegression.i: src/LinearRegression.cpp.i
+.PHONY : src/LinearRegression.i
+
+# target to preprocess a source file
+src/LinearRegression.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LinearRegression.dir/build.make CMakeFiles/LinearRegression.dir/src/LinearRegression.cpp.i
+.PHONY : src/LinearRegression.cpp.i
+
+src/LinearRegression.s: src/LinearRegression.cpp.s
+.PHONY : src/LinearRegression.s
+
+# target to generate assembly for a file
+src/LinearRegression.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LinearRegression.dir/build.make CMakeFiles/LinearRegression.dir/src/LinearRegression.cpp.s
+.PHONY : src/LinearRegression.cpp.s
+
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -162,6 +186,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... LinearRegression"
+	@echo "... src/LinearRegression.o"
+	@echo "... src/LinearRegression.i"
+	@echo "... src/LinearRegression.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
