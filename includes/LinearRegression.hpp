@@ -45,6 +45,11 @@ class LinearRegression {
 
         void fit_model(const double& learning_rate, const int& max_iterations);
 
+        xt::xtensor<double, 1> get_bias_vector();
+
+        xt::xtensor<double, 1> get_error_vector();
+
+
 
     private:
         xt::xtensor<double, 2> design_matrix;

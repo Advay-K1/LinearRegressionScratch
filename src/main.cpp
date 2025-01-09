@@ -33,6 +33,9 @@ int main() {
 
     model.fit_model(0.01, 50);
 
+
+    std::cout<< model.get_bias_vector()<<std::endl;
+    // std::cout<< model.get_error_vector() <<std::endl;
     // LinearRegression lin_mod(train_matrix, train_labels, valid_matrix, valid_labels);
 
     return 0;

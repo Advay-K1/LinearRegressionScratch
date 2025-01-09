@@ -102,3 +102,11 @@ void LinearRegression::fit_model(const double& learning_rate, const int& max_ite
     std::cout << "Validation Loss (RSS): " << test_loss << std::endl;
 
 }
+
+xt::xtensor<double, 1> LinearRegression::get_bias_vector() {
+    return bias_vector;
+}
+
+xt::xtensor<double, 1> LinearRegression::get_error_vector() {
+    return error_vector;
+}
