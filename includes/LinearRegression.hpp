@@ -6,7 +6,6 @@
 #include <xtensor/xarray.hpp>
 #include "xtensor-blas/xlinalg.hpp"
 #include "xtensor-blas/xblas.hpp"
-// #include "/usr/local/include/xtensor-blas/xlinalg.hpp"
 #include <xtensor/xio.hpp>
 #include <xtensor/xmath.hpp>
 
@@ -18,6 +17,12 @@ class LinearRegression {
             const xt::xtensor<double, 2>& predictor_matrix_valid,
             const xt::xtensor<double, 1>& y_vector_valid
         ); 
+
+
+        LinearRegression(
+            const xt::xtensor<double, 2>& predictor_matrix_train,
+            const xt::xtensor<double, 1>& y_vector_train
+        );
 
         // LinearRegression(
         //     xt::xtensor<double, 1> predictor_vector,
@@ -48,6 +53,9 @@ class LinearRegression {
         xt::xtensor<double, 1> get_bias_vector();
 
         xt::xtensor<double, 1> get_error_vector();
+
+
+        xt::xtensor<double, 2> get_response_vector(); 
 
 
 

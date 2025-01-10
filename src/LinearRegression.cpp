@@ -15,6 +15,17 @@ LinearRegression::LinearRegression(
     error_vector(xt::zeros<double>({predictor_matrix_train.shape(0)})) {}
 
 
+LinearRegression::LinearRegression(
+    const xt::xtensor<double, 2>& predictor_matrix_train,
+    const xt::xtensor<double, 1>& y_vector_train
+) : design_matrix(predictor_matrix_train), 
+    y_vector(y_vector_train), 
+    x_valid_matrix(xt::zeros<double>({predictor_matrix_train.shape(0)})), 
+    y_valid_vector(xt::zeros<double>({predictor_matrix_train.shape(0)})),
+    response_vector(xt::zeros<double>({predictor_matrix_train.shape(0)})),
+    bias_vector(xt::zeros<double>({predictor_matrix_train.shape(1)})),
+    error_vector(xt::zeros<double>({predictor_matrix_train.shape(0)})) {}
+
 double LinearRegression::RSS() {    
     auto residual = y_vector - response_vector;
 
@@ -109,4 +120,9 @@ xt::xtensor<double, 1> LinearRegression::get_bias_vector() {
 
 xt::xtensor<double, 1> LinearRegression::get_error_vector() {
     return error_vector;
+}
+
+
+xt::xtensor<double, 2> LinearRegression::get_response_vector() {
+    return response_vector;
 }
