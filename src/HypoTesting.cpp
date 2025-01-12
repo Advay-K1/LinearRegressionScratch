@@ -4,7 +4,7 @@ HypothesisTest::HypothesisTest(LinearRegression model, const xt::xtensor<double,
             const xt::xtensor<double, 1>& y_vector_train): 
             lin_mod(model), 
             design_matrix(predictor_matrix_train), 
-            y_vector(y_vector_train);
+            y_vector(y_vector_train)
             {}
 
 
@@ -25,7 +25,7 @@ double HypothesisTest::get_f_statistic(std::vector<int> coeffs_remove) {
     xt::xtensor<double, 2> reduced_design_matrix = xt::view(design_matrix, xt::all(), xt::keep(cols_to_keep));
 
 
-    LinearRegression reduced_model(predictor_matrix_train, y_vector_train);
+    LinearRegression reduced_model(design_matrix, y_vector);
 
     reduced_model.fit_model(0.01, 50);
 
@@ -42,7 +42,7 @@ double HypothesisTest::get_f_statistic(std::vector<int> coeffs_remove) {
 
 }
 
-double HypothesisTestget_p_value_f(double f_statistic, std::vector<int> coeffs_remove) {
+double HypothesisTest::get_p_value_f(double f_statistic, std::vector<int> coeffs_remove) {
 
 
     std::vector<int> cols_to_keep;
@@ -53,7 +53,7 @@ double HypothesisTestget_p_value_f(double f_statistic, std::vector<int> coeffs_r
 
     xt::xtensor<double, 2> reduced_design_matrix = xt::view(design_matrix, xt::all(), xt::keep(cols_to_keep));
     boost::math::fisher_f_distribution<> dist(removed_coeffs_count,  design_matrix_height- design_matrix_width);
-    double p_value = 1.0 - boost::math::cdf(dist, F);
+    double p_value = 1.0 - boost::math::cdf(dist, f_statistic);
 
     return p_value;
 }

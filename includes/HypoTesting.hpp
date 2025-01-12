@@ -3,10 +3,10 @@
 #include "xtensor-blas/xblas.hpp"
 #include <xtensor/xio.hpp>
 #include <xtensor/xmath.hpp>
-
 #include <boost/math/distributions/students_t.hpp>
 #include <boost/math/distributions/fisher_f.hpp>
 
+#include "/Users/advaykadam/LinearRegressionScratch/includes/LinearRegression.hpp"
 
 
 class HypothesisTest {
@@ -22,7 +22,8 @@ class HypothesisTest {
 
         double get_f_statistic(std::vector<int> coeffs_remove);
 
-        double get_p_value_f(double f_statistic);
+        double get_p_value_f(double f_statistic, std::vector<int> coeffs_remove);
+
 
 
 
