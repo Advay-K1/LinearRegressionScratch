@@ -1,5 +1,5 @@
 #include <iostream>
-#include "/Users/advaykadam/LinearRegressionScratch/includes/LinearRegression.hpp"
+#include "includes/LinearRegression.hpp"
 
 LinearRegression::LinearRegression(
     const xt::xtensor<double, 2>& predictor_matrix_train,
