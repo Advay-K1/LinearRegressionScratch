@@ -6,7 +6,7 @@
 #include <boost/math/distributions/students_t.hpp>
 #include <boost/math/distributions/fisher_f.hpp>
 
-#include "/Users/advaykadam/LinearRegressionScratch/includes/LinearRegression.hpp"
+#include "includes/LinearRegression.hpp"
 
 
 class HypothesisTest {
