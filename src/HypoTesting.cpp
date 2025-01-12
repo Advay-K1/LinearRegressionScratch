@@ -1,4 +1,4 @@
-#include "/Users/advaykadam/LinearRegressionScratch/includes/HypoTesting.hpp"
+#include "includes/HypoTesting.hpp"
 
 HypothesisTest::HypothesisTest(LinearRegression model, const xt::xtensor<double, 2>& predictor_matrix_train,
             const xt::xtensor<double, 1>& y_vector_train): 
